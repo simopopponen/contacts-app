@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactListItemComponent } from './contact-list/contact-list-item/contact-list-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-// other imports
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     FormsModule,
     HttpModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
