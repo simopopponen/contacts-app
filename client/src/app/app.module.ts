@@ -8,6 +8,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactListItemComponent } from './contact-list/contact-list-item/contact-list-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
+import {DialogService} from './service/dialog.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { MaterialModule } from '@angular/material';
     FlexLayoutModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
