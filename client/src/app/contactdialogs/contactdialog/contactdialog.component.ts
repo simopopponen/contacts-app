@@ -10,6 +10,9 @@ export class ContactdialogComponent implements OnInit {
 
   constructor() {}
 
+  saveContact() {
+    console.log("Saving....")
+  }
     ngOnInit() {
   }
 

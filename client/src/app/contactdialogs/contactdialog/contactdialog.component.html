@@ -1,5 +1,39 @@
+<h2>New Contact</h2>
 
-  <button md-fab md-dialog-close  >
+<md-input-container floatPlaceholder="auto">
+    <input mdInput type="text"  id="fname" required placeholder="First Name">
+</md-input-container>
+<br>
+
+<md-input-container floatPlaceholder="auto">
+  <input mdInput type="text"  id="lname" required placeholder="Last Name">
+</md-input-container>
+<br>
+
+<md-input-container floatPlaceholder="auto">
+  <input mdInput type="text"  pattern="-?[0-9]*(\.[0-9]+)?" id="phone" required placeholder="Phone Number">
+</md-input-container>
+<br>
+
+<md-input-container floatPlaceholder="auto">
+  <input mdInput type="text" required placeholder="Street Address">
+</md-input-container>
+<br>
+
+<md-input-container floatPlaceholder="auto">
+  <input mdInput type="text" required placeholder="Postal Code">
+</md-input-container>
+<br>
+
+<md-input-container floatPlaceholder="auto">
+  <input mdInput type="text" required placeholder="City">
+</md-input-container>
+<br>
+
+<button md-fab md-dialog-close (click)="saveContact()"  >
+  <md-icon >send</md-icon>
+</button>
+  <button md-fab md-dialog-close >
     <md-icon >accessible</md-icon>
   </button>
 

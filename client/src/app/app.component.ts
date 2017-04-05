@@ -17,4 +17,6 @@ export class AppComponent {
   addContact(){
     this.contactDialog.open(ContactdialogComponent);
   }
+
+
 }
