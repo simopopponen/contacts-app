@@ -11,7 +11,7 @@ export class MapdialogComponent implements OnInit {
 
   public mapDialog(address: string)
   {
-
+    this.mapDialog('Koti') ;
   }
   ngOnInit() {
   }

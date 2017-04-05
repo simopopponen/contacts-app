@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialog} from '@angular/material';
 
 @Component({
   selector: 'app-contactdialog',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactdialogComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+    ngOnInit() {
   }
 
 }
