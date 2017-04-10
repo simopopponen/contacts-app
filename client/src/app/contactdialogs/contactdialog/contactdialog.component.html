@@ -1,32 +1,32 @@
 <h2>New Contact</h2>
 
 <md-input-container floatPlaceholder="auto">
-    <input mdInput type="text"  id="fname" required placeholder="First Name">
+    <input [(ngModel)]="contact.firstName" mdInput type="text"  id="fname" required placeholder="First Name">
 </md-input-container>
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input mdInput type="text"  id="lname" required placeholder="Last Name">
+  <input [(ngModel)]="contact.lastName" mdInput type="text"  id="lname" required placeholder="Last Name">
 </md-input-container>
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input mdInput type="text"  pattern="-?[0-9]*(\.[0-9]+)?" id="phone" required placeholder="Phone Number">
+  <input [(ngModel)]="contact.phone" mdInput type="text"  pattern="-?[0-9]*(\.[0-9]+)?" id="phone" required placeholder="Phone Number">
 </md-input-container>
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input mdInput type="text" required placeholder="Street Address">
+  <input [(ngModel)]="contact.streetAddress" mdInput type="text" required placeholder="Street Address">
 </md-input-container>
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input mdInput type="text" required placeholder="Postal Code">
+  <input [(ngModel)]="contact.postalCode" mdInput type="text" required placeholder="Postal Code">
 </md-input-container>
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input mdInput type="text" required placeholder="City">
+  <input [(ngModel)]="contact.city" mdInput type="text" required placeholder="City">
 </md-input-container>
 <br>
 
