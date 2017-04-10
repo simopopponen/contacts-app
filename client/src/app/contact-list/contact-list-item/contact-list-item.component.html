@@ -1,3 +1,21 @@
-<p>
-  contact-list-item works!
-</p>
+<md-card class="contactCard">
+  <md-card-header id="cardHeader">
+    <md-icon id="cardIcon">face</md-icon>
+  </md-card-header>
+  <md-card-content>
+    <h3>{{contact.firstName + ' ' + contact.lastName}}</h3>
+    <p>{{contact.phone}} <br> {{contact.streetAddress + ', ' + contact.postalCode + ' ' + contact.city}}</p>
+
+  </md-card-content>
+  <md-card-actions>
+    <button md-mini-fab>
+      <md-icon>delete</md-icon>
+    </button>
+    <button md-mini-fab>
+      <md-icon>mode_edit</md-icon>
+    </button>
+    <button md-mini-fab id="mapButton" (click)="mapDialog()">
+      <md-icon>room</md-icon>
+    </button>
+  </md-card-actions>
+</md-card>

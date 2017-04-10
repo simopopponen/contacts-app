@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import {MapdialogComponent} from "./contactdialogs/mapdialog/mapdialog.component";
+import {ContactService} from "./service/contact.service";
+import {Contact} from "./contact";
 import {DialogService} from "./service/dialog.service";
-import {MdDialog} from "@angular/material";
-import {ContactdialogComponent} from "app/contactdialogs/contactdialog/contactdialog.component";
+
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,24 @@ import {ContactdialogComponent} from "app/contactdialogs/contactdialog/contactdi
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Contacts App';
 
-  constructor(public contactDialog: MdDialog){
-    // contactDialog.mapDialog('Kotipellonkatu 9 53850 Lappeenranta')
-      }
-  addContact(){
-    this.contactDialog.open(ContactdialogComponent);
+  contacts: Contact[];
+
+  constructor(public dialogService: DialogService, public contactService: ContactService) {
+
+    this.contacts = contactService.findContacts();
+  }
+
+  addContact() {
+    this.dialogService.contactDialog();
+  }
+
+  contactMap(contact: Contact){
+    let address = contact.streetAddress + ', ' + contact.city;
+    this.dialogService.mapDialog(address);
   }
 
 
+  //Call functions here for add, get and delete contacts
 }

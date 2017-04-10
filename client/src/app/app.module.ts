@@ -11,6 +11,7 @@ import { MaterialModule } from '@angular/material';
 import {DialogService} from './service/dialog.service';
 import {MapdialogComponent} from "./contactdialogs/mapdialog/mapdialog.component";
 import {ContactdialogComponent} from "./contactdialogs/contactdialog/contactdialog.component";
+import {ContactService} from "./service/contact.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {ContactdialogComponent} from "./contactdialogs/contactdialog/contactdial
     FlexLayoutModule,
     MaterialModule
   ],
-  providers: [DialogService],
+  providers: [ContactService,DialogService],
   bootstrap: [AppComponent],
   entryComponents: [MapdialogComponent, ContactdialogComponent]
 })
