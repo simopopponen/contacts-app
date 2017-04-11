@@ -7,6 +7,7 @@ export class ContactService {
   private contacts: Contact[];
 
 
+
   constructor() {
     this.contacts = [
       new Contact(0,"Simo", "Pöppönen", "0401234567", "Kotipellonkatu 9", "53850", "Lappeenranta"),

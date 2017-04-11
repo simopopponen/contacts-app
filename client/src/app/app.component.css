@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#addButton {
+  float: right;
+  margin: 15px 0px;
+}

@@ -10,11 +10,21 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
   @Input() edit: EventEmitter<Contact>;
-  @Input() remove: EventEmitter<Contact>;
+  @Input() deleteContact: EventEmitter<Contact>;
   @Input() showOnMap: EventEmitter<Contact>;
 
   constructor() { }
 
+  editContact(){
+    this.edit.emit(this.contact);
+  }
+  removeContact(){
+    this.deleteContact.emit(this.contact);
+  }
+
+  showMap(){
+    this.showOnMap.emit(this.contact);
+  }
 
   ngOnInit() {
   }
