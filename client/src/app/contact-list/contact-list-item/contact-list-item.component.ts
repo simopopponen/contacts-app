@@ -10,19 +10,21 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
   @Input() edit: EventEmitter<Contact>;
-  @Input() deleteContact: EventEmitter<Contact>;
+  @Input() remove: EventEmitter<Contact>;
   @Input() showOnMap: EventEmitter<Contact>;
 
-  constructor() { }
+  constructor() {
+  }
 
-  editContact(){
+  editContact() {
     this.edit.emit(this.contact);
   }
-  removeContact(){
-    this.deleteContact.emit(this.contact);
+
+  removeContact() {
+    this.remove.emit(this.contact);
   }
 
-  showMap(){
+  showContactOnMap() {
     this.showOnMap.emit(this.contact);
   }
 

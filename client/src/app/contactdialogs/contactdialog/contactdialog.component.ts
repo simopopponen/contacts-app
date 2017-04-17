@@ -10,6 +10,7 @@ import {Contact} from "../../contact";
 })
 export class ContactdialogComponent implements OnInit {
   contact: Contact;
+  editMode: boolean;
 
   constructor(public dialog: MdDialogRef<ContactdialogComponent>) {
   }
@@ -20,10 +21,15 @@ export class ContactdialogComponent implements OnInit {
     this.dialog.close(this.contact);
 
   }
+  closeDialog() {
+    this.dialog.close();
+  }
 
   ngOnInit() {
+    this.editMode = true;
     if (!this.contact) {
       this.contact = new Contact();
+      this.editMode = false;
     }
   }
 }

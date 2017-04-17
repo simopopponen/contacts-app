@@ -1,6 +1,7 @@
-<div *ngFor="let contact of contacts">
-  <app-contact-list-item [contact]="contact"
-    [edit]="editContact" [deleteContact]="deleteContact" [showOnMap]="showContactOnMap">
-  </app-contact-list-item>
-
-</div>
+<app-contact-list-item *ngFor="let contact of contacts"
+                       [contact]="contact"
+                       [deleteContact]="removeContact"
+                       [edit]="editContact"
+                       [showOnMap]="showContactOnMap"
+>
+</app-contact-list-item>

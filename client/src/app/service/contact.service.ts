@@ -1,23 +1,40 @@
 import {Injectable} from '@angular/core';
-import {Contact} from "../contact";
+import {Contact} from '../contact';
+import * as _ from 'lodash';
+import {LocalStorageService} from './local-storage.service';
+
 
 @Injectable()
 export class ContactService {
 
   private contacts: Contact[];
 
+  constructor(private localStorageService: LocalStorageService) {
+    }
 
-
-  constructor() {
-    this.contacts = [
-      new Contact(0,"Simo", "Pöppönen", "0401234567", "Kotipellonkatu 9", "53850", "Lappeenranta"),
-      new Contact(1,"Aleksi", "Pöppönen", "0402234567", "Kotipellonkatu 9", "53850", "Lappeenranta"),
-      new Contact(2,"Erkki", "Erämies", "0403234567", "Tuomaankatu 4", "55100", "Imatra")
-    ]
+    public getContacts(): Promise<Contact[]> {
+    const contacts = this.localStorageService.loadContacts();
+    return Promise.resolve(contacts);
   }
-
-  findContacts() : Contact[]{
-    return this.contacts;
+  public addContact(contact: Contact): void {
+    let contacts = this.localStorageService.loadContacts();
+    contacts.push(contact);
+    this.localStorageService.saveContacts(contacts);
   }
-
+  public updateContact(contact: Contact): void {
+    let contacts = this.localStorageService.loadContacts();
+    let index = _.findIndex(contacts, ['id', contact.id]);
+    if (index >= 0) {
+      contacts.splice(index, 1, contact);
+      this.localStorageService.saveContacts(contacts);
+    }
+  }
+  public removeContact(id: string): void {
+    let contacts = this.localStorageService.loadContacts();
+    let index = _.findIndex(contacts, ['id', id]);
+    if (index >= 0) {
+      contacts.splice(index, 1);
+      this.localStorageService.saveContacts(contacts);
+    }
+  }
 }

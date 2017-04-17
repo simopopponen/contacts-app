@@ -1,34 +1,58 @@
-import { Component } from '@angular/core';
-import {MapdialogComponent} from "./contactdialogs/mapdialog/mapdialog.component";
-import {ContactService} from "./service/contact.service";
+import { Component, OnInit } from '@angular/core';
 import {Contact} from "./contact";
+import {ContactService} from "./service/contact.service";
 import {DialogService} from "./service/dialog.service";
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ContactService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
   title = 'Contacts App';
 
   contacts: Contact[];
 
-  constructor(public dialogService: DialogService, public contactService: ContactService) {
+  constructor(private contactService: ContactService, private dialogService: DialogService) {}
+  // constructor(public dialogService: DialogService, public contactService: ContactService) {}
 
-    this.contacts = contactService.findContacts();
+  addContact(): void {
+    let input = this.dialogService.contactDialog();
+    input.subscribe(result => {
+      if (result) {
+        this.contactService.addContact(result);
+        this.loadContacts();
+      }
+    });
   }
-
-  addContact() {
-    this.dialogService.contactDialog();
+  editContact(contact: Contact): void {
+    let input = this.dialogService.contactDialog(contact);
+    input.subscribe(result => {
+      if (result) {
+        this.contactService.updateContact(result);
+        this.loadContacts();
+      }
+    });
   }
 
   contactMap(contact: Contact){
-    let address = contact.streetAddress + ', ' + contact.city;
+    let address = contact.streetAddress + ', ' + contact.postalCode + ' ' + contact.city;
     this.dialogService.mapDialog(address);
   }
 
+  removeContact(contact: Contact): void {
+    this.contactService.removeContact(contact.id.toString());
+    this.loadContacts();
+  }
 
-  //Call functions here for add, get and delete contacts
+  loadContacts() {
+    this.contactService.getContacts().then(contacts => this.contacts = contacts);
+  }
+  ngOnInit(): void {
+    this.loadContacts();
+  }
+
+  // Call functions here for add, get and delete contacts
 }

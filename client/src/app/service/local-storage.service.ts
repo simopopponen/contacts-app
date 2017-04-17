@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
-import { Contact } from "../contact";
-import * as _ from "lodash";
+import {Contact} from "../contact";
 
 @Injectable()
 export class LocalStorageService {
