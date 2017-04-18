@@ -7,7 +7,7 @@
       [contacts]="contacts"
       (editContact)="editContact($event)"
       (removeContact)="removeContact($event)"
-      (showContactOnMap)="showContactOnMap($event)"
+      (showContactOnMap)="contactMap($event)"
     >
     </app-contact-list>
     <button md-fab (click)="addContact()" id="addButton">

@@ -18,8 +18,11 @@ export class ContactdialogComponent implements OnInit {
 
   saveContact() {
     console.log(this.contact);
-    this.dialog.close(this.contact);
-
+    let validateInput =  (this.contact.firstName && this.contact.lastName)
+    if (validateInput !== '')
+    {
+      this.dialog.close(this.contact);
+    }
   }
   closeDialog() {
     this.dialog.close();
