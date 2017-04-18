@@ -1,5 +1,4 @@
-<h2>New Contact</h2>
-
+<h2>{{contact.firstName ? 'Edit Contact' : 'New Contact' }} </h2>
 <md-input-container floatPlaceholder="auto">
     <input [(ngModel)]="contact.firstName" mdInput type="text"  id="fname" required placeholder="First Name">
 </md-input-container>

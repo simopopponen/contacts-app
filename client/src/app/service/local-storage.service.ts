@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../contact";
+import * as _ from "lodash";
+
 
 @Injectable()
 export class LocalStorageService {
@@ -12,6 +14,9 @@ export class LocalStorageService {
   }
 
   public saveContacts(contacts: Contact[]): void {
+    // let lastSaved = <Contact>_.maxBy(contacts, 'id');
+    //  if lastSaved found -> lastsaved.id + 1, else contact.id == 1
+    // contact.id = lastSaved ? lastSaved.id + 1 : 1;
     localStorage[this.localStorageKey] = JSON.stringify(contacts);
   }
 
