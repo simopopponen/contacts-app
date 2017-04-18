@@ -14,6 +14,7 @@ import {ContactdialogComponent} from "./contactdialogs/contactdialog/contactdial
 import {ContactService} from "./service/contact.service";
 import {LocalStorageService} from "./service/local-storage.service";
 import { ContactAddressPipe } from './contact-list/pipes/contact-address.pipe';
+import {NgPipesModule} from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContactAddressPipe } from './contact-list/pipes/contact-address.pipe';
     HttpModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgPipesModule
   ],
   providers: [ContactService, DialogService, LocalStorageService],
   bootstrap: [AppComponent],
