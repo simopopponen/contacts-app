@@ -13,6 +13,7 @@ import {MapdialogComponent} from "./contactdialogs/mapdialog/mapdialog.component
 import {ContactdialogComponent} from "./contactdialogs/contactdialog/contactdialog.component";
 import {ContactService} from "./service/contact.service";
 import {LocalStorageService} from "./service/local-storage.service";
+import { ContactAddressPipe } from './contact-list/pipes/contact-address.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {LocalStorageService} from "./service/local-storage.service";
     ContactListComponent,
     ContactListItemComponent,
     MapdialogComponent,
-    ContactdialogComponent
+    ContactdialogComponent,
+    ContactAddressPipe
   ],
   imports: [
     BrowserModule,
