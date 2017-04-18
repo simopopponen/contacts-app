@@ -23,6 +23,6 @@ export class MapdialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mapUrl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyDmUcAU7BWA5VkyY5KvP84kM8fc_bdXMoM&q=' + this.address;
+    this.mapUrl = 'http://www.google.com/maps?output=embed&q=' + this.address;
   }
 }
