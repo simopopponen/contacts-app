@@ -1,4 +1,4 @@
-<app-contact-list-item *ngFor="let contact of contacts | orderBy: 'lastName'"
+<app-contact-list-item *ngFor="let contact of contacts | orderBy: ['lastName', 'firstName', 'streetAddress']"
                        [contact]="contact"
                        [remove]="removeContact"
                        [edit]="editContact"
