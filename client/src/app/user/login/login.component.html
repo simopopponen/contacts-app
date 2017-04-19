@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center" class="login">
+  <md-card>
+    <md-card-header>
+      <md-icon id="loginIcon">https</md-icon>
+    </md-card-header>
+    <md-card-content>
+      <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+        <h2>Login to use the app</h2>
+      </div>
+      <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+        <md-input-container floatPlaceholder="auto">
+          <input mdInput [(ngModel)]="user.emailAddress" type="text" required placeholder="Email address">
+        </md-input-container>
+      </div>
+      <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+        <md-input-container floatPlaceholder="auto">
+          <input mdInput [(ngModel)]="user.password" type="password" required placeholder="Password">
+        </md-input-container>
+      </div>
+      <br>
+      <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+        <button md-raised-button color="primary"
+                [disabled]="!user.emailAddress || !user.password"
+                (click)="navigateToContacts()">Login
+        </button>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

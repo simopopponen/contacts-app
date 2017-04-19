@@ -17,6 +17,25 @@ import { ContactAddressPipe } from './contact-list/pipes/contact-address.pipe';
 import {NgPipesModule} from 'ngx-pipes';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './user/login/login.component';
+import { RouterModule } from '@angular/router';
+
+const routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+
+  ]
 
 @NgModule({
   declarations: [
@@ -36,7 +55,8 @@ import { LoginComponent } from './user/login/login.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgPipesModule
+    NgPipesModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ContactService, DialogService, LocalStorageService],
   bootstrap: [AppComponent],
