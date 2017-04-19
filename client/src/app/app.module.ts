@@ -15,6 +15,8 @@ import {ContactService} from "./service/contact.service";
 import {LocalStorageService} from "./service/local-storage.service";
 import { ContactAddressPipe } from './contact-list/pipes/contact-address.pipe';
 import {NgPipesModule} from 'ngx-pipes';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {NgPipesModule} from 'ngx-pipes';
     ContactListItemComponent,
     MapdialogComponent,
     ContactdialogComponent,
-    ContactAddressPipe
+    ContactAddressPipe,
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
