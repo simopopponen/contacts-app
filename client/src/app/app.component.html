@@ -1,20 +1,5 @@
 <div class="app">
-  <div class="appContent">
-    <h1>
-      {{title}}
-    </h1>
-    <app-contact-list
-      [contacts]="contacts"
-      (editContact)="editContact($event)"
-      (removeContact)="removeContact($event)"
-      (showContactOnMap)="contactMap($event)"
-    >
-    </app-contact-list>
-    <button md-fab (click)="addContact()" id="addButton">
-      <md-icon>person_add</md-icon>
-    </button>
     <router-outlet></router-outlet>
-  </div>
 </div>
 
 

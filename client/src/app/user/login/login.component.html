@@ -1,11 +1,11 @@
 <div fxFlexFill fxLayout="column" fxLayoutAlign="center center" class="login">
   <md-card>
     <md-card-header>
-      <md-icon id="loginIcon">https</md-icon>
+      <md-icon id="loginIcon">cake</md-icon>
     </md-card-header>
     <md-card-content>
       <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
-        <h2>Login to use the app</h2>
+        <h2>Login to use the Contact app</h2>
       </div>
       <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
         <md-input-container floatPlaceholder="auto">
@@ -21,7 +21,7 @@
       <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
         <button md-raised-button color="primary"
                 [disabled]="!user.emailAddress || !user.password"
-                (click)="navigateToContacts()">Login
+                (click)="navigateToContacts()">Login to app
         </button>
       </div>
     </md-card-content>
