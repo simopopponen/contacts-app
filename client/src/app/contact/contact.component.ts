@@ -24,7 +24,8 @@ export class ContactComponent implements OnInit {
     let input = this.dialogService.contactDialog();
     input.subscribe(result => {
       if (result) {
-        this.contactService.addContact(result);
+        // this.contactService.addContact(result);
+        this.contactsApi.saveContact(result).subscribe();
         this.loadContacts();
       }
     });

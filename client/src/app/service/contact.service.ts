@@ -22,9 +22,11 @@ export class ContactService {
 
   }
   public addContact(contact: Contact): void {
-    let contacts = this.localStorageService.loadContacts();
-    contacts.push(contact);
-    this.localStorageService.saveContacts(contacts);
+    // let contacts = this.localStorageService.loadContacts();
+    //let contacts = this.contactsApi.findContacts();
+    //contacts.push(contact);
+    // this.localStorageService.saveContacts(contacts);
+    return this.contactsApi.saveContact(contact);
   }
   public updateContact(contact: Contact): void {
     let contacts = this.localStorageService.loadContacts();
