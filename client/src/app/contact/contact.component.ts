@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {Contact} from "../contact";
 import {ContactService} from "../service/contact.service";
 import {DialogService} from "../service/dialog.service";
+import {ContactsApiService} from "../service/contacts-api.service";
 
 
 @Component({
@@ -12,11 +13,11 @@ import {DialogService} from "../service/dialog.service";
 })
 export class ContactComponent implements OnInit {
 
-  title = 'Contacts App';
+
 
   contacts: Contact[];
 
-  constructor(private router: Router, private contactService: ContactService, private dialogService: DialogService) {
+  constructor(private router: Router, private contactService: ContactService, private dialogService: DialogService, private contactsApi: ContactsApiService) {
   }
 
   addContact(): void {
@@ -49,7 +50,10 @@ export class ContactComponent implements OnInit {
   }
 
   loadContacts() {
-    this.contactService.getContacts().then(contacts => this.contacts = contacts);
+    //this.contactService.getContacts().then(contacts => this.contacts = contacts);
+    this.contactsApi.findContacts().subscribe(contacts => this.contacts = contacts);
+
+
   }
   ngOnInit(): void {
     this.loadContacts();

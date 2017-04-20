@@ -13,11 +13,13 @@ import {MapdialogComponent} from "./contactdialogs/mapdialog/mapdialog.component
 import {ContactdialogComponent} from "./contactdialogs/contactdialog/contactdialog.component";
 import {ContactService} from "./service/contact.service";
 import {LocalStorageService} from "./service/local-storage.service";
+import { ContactsApiService} from './service/contacts-api.service';
 import { ContactAddressPipe } from './contact-list/pipes/contact-address.pipe';
 import {NgPipesModule} from 'ngx-pipes';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './user/login/login.component';
 import { RouterModule } from '@angular/router';
+
 
 const routes = [
   {
@@ -58,7 +60,7 @@ const routes = [
     NgPipesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ContactService, DialogService, LocalStorageService],
+  providers: [ContactService, DialogService, LocalStorageService, ContactsApiService],
   bootstrap: [AppComponent],
   entryComponents: [MapdialogComponent, ContactdialogComponent]
 })
