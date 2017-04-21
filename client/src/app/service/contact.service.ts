@@ -6,10 +6,11 @@ import {ContactsApiService} from './contacts-api.service';
 import {Observable} from "rxjs";
 import {observable} from "rxjs/symbol/observable";
 
+
 @Injectable()
 export class ContactService {
 
-  private contacts: Contact[];
+  private contacts: Observable<Contact[]>;
 
   constructor(private localStorageService: LocalStorageService,
               private contactsApi: ContactsApiService) {
@@ -21,20 +22,11 @@ export class ContactService {
      return observable.contacts;
 
   }
-  public addContact(contact: Contact): void {
-    // let contacts = this.localStorageService.loadContacts();
-    //let contacts = this.contactsApi.findContacts();
-    //contacts.push(contact);
-    // this.localStorageService.saveContacts(contacts);
+  public addContact(contact: Contact) {
     return this.contactsApi.saveContact(contact);
   }
-  public updateContact(contact: Contact): void {
-    let contacts = this.localStorageService.loadContacts();
-    let index = _.findIndex(contacts, ['id', contact.id]);
-    if (index >= 0) {
-      contacts.splice(index, 1, contact);
-      this.localStorageService.saveContacts(contacts);
-    }
+  public updateContact(contact: Contact) {
+    return this.contactsApi.saveContact(contact);
   }
   public removeContact(id: string): void {
     let contacts = this.localStorageService.loadContacts();

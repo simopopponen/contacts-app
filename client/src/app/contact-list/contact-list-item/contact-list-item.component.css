@@ -28,3 +28,7 @@
 .contact-list-item .contact-list-item-heading {
   font-size: 1.3em;
 }
+
+#cardIcon {
+  align-items: center;
+}

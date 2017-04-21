@@ -24,7 +24,7 @@ export class ContactsApiService {
     return this.http.post(this.url, contact);
   }
 
-  updateContact(contact: Contact){
+  updateContact(contact: Contact) {
     return this.http.post(this.url + '/' + contact.id, contact);
 
   }

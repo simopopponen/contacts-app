@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
     input.subscribe(result => {
       if (result) {
         // this.contactService.addContact(result);
-        this.contactsApi.saveContact(result).subscribe(data =>
+        this.contactsApi.saveContact(result).subscribe(response =>
           this.loadContacts());
       }
     });

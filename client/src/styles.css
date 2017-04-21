@@ -23,3 +23,15 @@
   -webkit-font-smoothing: antialiased;
 }
 
+html{
+  font-family: 'Roboto', sans-serif;
+  background-color: gold ;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
