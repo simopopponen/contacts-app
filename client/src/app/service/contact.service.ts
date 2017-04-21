@@ -10,22 +10,19 @@ import {observable} from "rxjs/symbol/observable";
 @Injectable()
 export class ContactService {
 
-  private contacts: Observable<Contact[]>;
+  //private contacts: Observable<Contact[]>;
 
   constructor(private localStorageService: LocalStorageService,
               private contactsApi: ContactsApiService) {
     }
 
-    public getContacts(): Observable<Contact[]> {
+    public getContacts(contact: Contact)  {
     // const contacts = this.localStorageService.loadContacts();
-      let contacts = this.contactsApi.findContacts();
-     return observable.contacts;
+     // let contacts = this.contactsApi.findContacts();
+     return this.contactsApi.findContacts();
 
   }
-  public addContact(contact: Contact) {
-    return this.contactsApi.saveContact(contact);
-  }
-  public updateContact(contact: Contact) {
+  public saveContacts(contact: Contact) {
     return this.contactsApi.saveContact(contact);
   }
   public removeContact(id: string): void {

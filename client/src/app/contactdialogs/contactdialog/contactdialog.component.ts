@@ -14,8 +14,6 @@ export class ContactdialogComponent implements OnInit {
 
   constructor(public dialog: MdDialogRef<ContactdialogComponent>) {
   }
-
-
   saveContact() {
     console.log(this.contact);
     let validateInput =  (this.contact.firstName && this.contact.lastName)

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Contact} from '../contact';
 
-
 @Injectable()
 export class ContactsApiService {
 
@@ -21,11 +20,11 @@ export class ContactsApiService {
   }
 
   createContact(contact: Contact) {
-    return this.http.post(this.url, contact);
+    return this.http.post(this.url, contact)
   }
 
   updateContact(contact: Contact) {
-    return this.http.post(this.url + '/' + contact.id, contact);
+    return this.http.put(this.url, contact);
 
   }
 }

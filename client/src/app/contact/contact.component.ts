@@ -4,6 +4,7 @@ import {Contact} from "../contact";
 import {ContactService} from "../service/contact.service";
 import {DialogService} from "../service/dialog.service";
 import {ContactsApiService} from "../service/contacts-api.service";
+import {ajaxGetJSON} from "rxjs/observable/dom/AjaxObservable";
 
 
 @Component({
@@ -13,19 +14,17 @@ import {ContactsApiService} from "../service/contacts-api.service";
 })
 export class ContactComponent implements OnInit {
 
-
-
   contacts: Contact[];
 
   constructor(private router: Router, private contactService: ContactService, private dialogService: DialogService, private contactsApi: ContactsApiService) {
   }
 
-  addContact(): void {
+  addContact(contact: Contact): void {
     let input = this.dialogService.contactDialog();
     input.subscribe(result => {
       if (result) {
         // this.contactService.addContact(result);
-        this.contactsApi.saveContact(result).subscribe(response =>
+        this.contactService.saveContacts(result).subscribe(data  =>
           this.loadContacts());
       }
     });
@@ -35,8 +34,8 @@ export class ContactComponent implements OnInit {
     input.subscribe(result => {
       if (result) {
         // this.contactService.updateContact(result);
-        this.contactsApi.saveContact(contact).subscribe(response =>
-        this.loadContacts());
+        this.contactService.saveContacts(result).subscribe(data =>
+          this.loadContacts());
       }
     });
   }
