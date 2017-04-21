@@ -11,9 +11,8 @@
 }
 
 .example-sidenav-fab-container {
-  width: 500px;
-  height: 300px;
-  border: none;
+  background: #f1f2f4 url("../assets/images/Sulku.jpg") left;
+  min-width: 100px;
 }
 
 .example-sidenav-fab-container md-sidenav {
@@ -34,4 +33,9 @@
   position: absolute;
   right: 20px;
   bottom: 10px;
+}
+.header {
+  background: #f1f2f4 url("../assets/images/Sulku.jpg") left ;
+  color: fuchsia;
+  align-items: center;
 }

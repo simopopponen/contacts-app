@@ -25,8 +25,8 @@ export class ContactComponent implements OnInit {
     input.subscribe(result => {
       if (result) {
         // this.contactService.addContact(result);
-        this.contactsApi.saveContact(result).subscribe();
-        this.loadContacts();
+        this.contactsApi.saveContact(result).subscribe(data =>
+          this.loadContacts());
       }
     });
   }
@@ -34,8 +34,9 @@ export class ContactComponent implements OnInit {
     let input = this.dialogService.contactDialog(contact);
     input.subscribe(result => {
       if (result) {
-        this.contactService.updateContact(result);
-        this.loadContacts();
+        // this.contactService.updateContact(result);
+        this.contactsApi.saveContact(contact).subscribe(response =>
+        this.loadContacts());
       }
     });
   }
