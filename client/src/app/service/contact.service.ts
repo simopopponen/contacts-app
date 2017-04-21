@@ -25,12 +25,13 @@ export class ContactService {
   public saveContacts(contact: Contact) {
     return this.contactsApi.saveContact(contact);
   }
-  public removeContact(id: string): void {
-    let contacts = this.localStorageService.loadContacts();
+  public removeContact(contact: Contact) {
+    /*let contacts = this.localStorageService.loadContacts();
     let index = _.findIndex(contacts, ['id', id]);
     if (index >= 0) {
       contacts.splice(index, 1);
-      this.localStorageService.saveContacts(contacts);
+      this.localStorageService.saveContacts(contacts);*/
+    return this.contactsApi.deleteContact(contact);
     }
-  }
+
 }

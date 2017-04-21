@@ -20,11 +20,16 @@ export class ContactsApiService {
   }
 
   createContact(contact: Contact) {
-    return this.http.post(this.url, contact)
+    return this.http.post(this.url, contact);
   }
 
   updateContact(contact: Contact) {
     return this.http.put(this.url, contact);
 
+  }
+
+  deleteContact(contact: Contact) {
+    console.log(this.url + '/' + contact.id);
+    return this.http.delete(this.url + '/' + contact.id);
   }
 }
