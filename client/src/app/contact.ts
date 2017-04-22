@@ -8,12 +8,12 @@ export class Contact {
   city: string;
 
   constructor(firstName?: string, lastName?: string, phone?: string, streetAddress?: string, city?: string, postalCode?: string, id?: string) {
-    this.id = id ? id : ''; // Date.now().toString();
-    this.firstName = firstName ? firstName : '';
-    this.lastName = lastName ? lastName : '';
-    this.phone = phone ? phone : '';
-    this.streetAddress = streetAddress ? streetAddress : '';
-    this.postalCode = postalCode ? postalCode : '';
-    this.city = city ? city : '';
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.phone = phone;
+    this.streetAddress = streetAddress;
+    this.postalCode = postalCode;
+    this.city = city;
   }
 }

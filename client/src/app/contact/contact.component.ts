@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
     input.subscribe(result => {
       if (result) {
         // this.contactService.addContact(result);
-        this.contactService.saveContacts(result).subscribe(result  =>
+        this.contactService.saveContacts(result).subscribe(response  =>
           this.loadContacts());
       }
     });

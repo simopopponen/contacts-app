@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Contact} from '../contact';
+import {ajaxGetJSON} from "rxjs/observable/dom/AjaxObservable";
 
 @Injectable()
 export class ContactsApiService {
