@@ -10,7 +10,7 @@
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input [(ngModel)]="contact.phone" mdInput type="text"  pattern="-?[0-9]*(\.[0-9]+)?" id="phone" required placeholder="Phone Number">
+  <input [(ngModel)]="contact.phone" mdInput type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="phone" required placeholder="Phone Number">
 </md-input-container>
 <br>
 
@@ -20,7 +20,7 @@
 <br>
 
 <md-input-container floatPlaceholder="auto">
-  <input [(ngModel)]="contact.postalCode" mdInput type="text" required placeholder="Postal Code">
+  <input [(ngModel)]="contact.postalCode" mdInput type="number" required placeholder="Postal Code">
 </md-input-container>
 <br>
 
@@ -29,7 +29,8 @@
 </md-input-container>
 <br>
 
-<button md-fab md-dialog-close (click)="saveContact()"  >
+<button md-fab md-dialog-close (click)="saveContact()"
+  [disabled]="!contact.firstName || !contact.lastName" >
   <md-icon >send</md-icon>
 </button>
   <button md-fab md-dialog-close (click)="closeDialog()" >
