@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Contact} from '../contact';
 import {ajaxGetJSON} from "rxjs/observable/dom/AjaxObservable";
+import {ContactStorage} from "./contact-storage";
 
 @Injectable()
-export class ContactsApiService {
+export class ContactsApiService implements ContactStorage{
 
   url = 'http://localhost:49925/api/contacts';
 
