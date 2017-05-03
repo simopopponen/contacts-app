@@ -3,11 +3,13 @@ import {Http} from '@angular/http';
 import {Contact} from '../contact';
 import {ajaxGetJSON} from "rxjs/observable/dom/AjaxObservable";
 import {ContactStorage} from "./contact-storage";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ContactsApiService implements ContactStorage{
 
-  url = 'http://localhost:49925/api/contacts';
+  // url = 'http://localhost:49925/api/contacts';
+  url = environment.endPointUrl + '/contacts';
 
   constructor(private http: Http) { }
 
@@ -17,7 +19,7 @@ export class ContactsApiService implements ContactStorage{
       .map(response => response.json() as Contact[]);
   }
 
-  saveContact(contact: Contact) {
+  saveContacts(contact: Contact) {
     return contact.id ? this.updateContact(contact) : this.createContact(contact);
   }
 

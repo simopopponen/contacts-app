@@ -4,6 +4,7 @@ import {Contact} from "../contact";
 import {ContactService} from "../service/contact.service";
 import {DialogService} from "../service/dialog.service";
 import {ContactsApiService} from "../service/contacts-api.service";
+import {Observable} from "rxjs/Observable";
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ContactComponent implements OnInit {
   constructor(private router: Router, private contactService: ContactService, private dialogService: DialogService, private contactsApi: ContactsApiService) {
   }
 
-  addContact(contact: Contact): void {
+  addContact(contact: Observable<Contact>): void {
     let input = this.dialogService.contactDialog();
     input.subscribe(result => {
       if (result) {
@@ -50,8 +51,9 @@ export class ContactComponent implements OnInit {
   }
 
   loadContacts() {
-    //this.contactService.getContacts().then(contacts => this.contacts = contacts);
-    this.contactsApi.findContacts().subscribe(contacts => this.contacts = contacts);
+    this.contactService.findContacts().subscribe(contacts => this.contacts);
+      // .subscribe(contacts => this.contacts = contacts);
+    //this.contactsApi.findContacts().subscribe(contacts => this.contacts = contacts);
 
 
   }

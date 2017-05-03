@@ -15,21 +15,19 @@ export class ContactService {
 
   contactStorage: ContactStorage;
 
-  //private contacts: Observable<Contact[]>;
+  private contacts: Observable<Contact[]>;
 
   constructor(private localStorageService: LocalStorageService,
               private contactsApi: ContactsApiService) {
     this.contactStorage = environment.endPointUrl ? contactsApi : localStorageService;
     }
 
-    public getContacts(contact: Contact)  {
-    // const contacts = this.localStorageService.loadContacts();
-     // let contacts = this.contactsApi.findContacts();
-     return this.contactStorage.findContacts();
+    public findContacts()  {
+      return this.contactStorage.findContacts();
 
   }
   public saveContacts(contact: Contact) {
-    return this.contactStorage.saveContact(contact);
+    return this.contactStorage.saveContacts(contact);
   }
   public removeContact(contact: Contact) {
     /*let contacts = this.localStorageService.loadContacts();
@@ -37,7 +35,7 @@ export class ContactService {
     if (index >= 0) {
       contacts.splice(index, 1);
       this.localStorageService.saveContacts(contacts);*/
-    return this.contactsApi.deleteContact(contact);
+    return this.contactStorage.deleteContact(contact);
     }
 
 }

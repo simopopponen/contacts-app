@@ -1,7 +1,8 @@
 import {Contact} from "../contact";
+import {Observable} from "rxjs/Observable";
 
 export interface ContactStorage {
-  findContacts();
-  saveContact(contact: Contact);
+  saveContacts(contact: Contact);
   deleteContact(contact: Contact);
+  findContacts();
 }
