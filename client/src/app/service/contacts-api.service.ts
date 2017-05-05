@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Contact} from '../contact';
-import {ajaxGetJSON} from "rxjs/observable/dom/AjaxObservable";
 import {ContactStorage} from "./contact-storage";
-import {environment} from "../../environments/environment";
+import { environment} from "../../environments/environment";
 
 @Injectable()
 export class ContactsApiService implements ContactStorage{

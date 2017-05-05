@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Contact} from "../contact";
 import * as _ from "lodash";
 import {ContactStorage} from "./contact-storage";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 
 
 @Injectable()
@@ -17,13 +17,26 @@ export class LocalStorageService implements ContactStorage {
     }
   }
 
-  public saveContacts(contacts: Contact): void {
-
-    localStorage[this.localStorageKey] = JSON.stringify(contacts);
+  public saveContacts(contact: Contact) {
+    let contacts = this.readContactsLocalStorage();
+    if (!contact.id) {
+      let lastSaved = <Contact>_.maxBy(contacts, 'id');
+      // if lastSaved found -> lastsaved.id + 1, else contact.id == 1
+      contact.id = lastSaved ? lastSaved.id + 1 : 1;
+      contacts.push(contact);
+    } else {
+      contacts = _.map(contacts, function (cont: Contact) {
+        return cont.id === contact.id ? contact : cont;
+      });
+    }
+    this.writeLocalStorageContacts(contacts);
+    // return contacts;
+      return Observable.of(contacts);
+    // localStorage[this.localStorageKey] = JSON.stringify(contacts);
   }
 
-  public findContacts(): Observable<Contact> {
-    let contacts =  JSON.parse(localStorage[this.localStorageKey]);
+  public findContacts() {
+    let contacts = this.readContactsLocalStorage();
     return Observable.of(contacts);
   }
 
@@ -31,5 +44,12 @@ export class LocalStorageService implements ContactStorage {
 
 
   }
-
+  public readContactsLocalStorage() {
+    let data = localStorage.getItem(this.localStorageKey);
+    return JSON.parse(data);
+  }
+  private writeLocalStorageContacts(contacts) {
+    contacts = JSON.stringify(contacts);
+    localStorage.setItem(this.localStorageKey, contacts);
+  }
 }

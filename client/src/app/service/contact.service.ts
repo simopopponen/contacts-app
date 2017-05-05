@@ -6,7 +6,7 @@ import {ContactsApiService} from './contacts-api.service';
 import {Observable} from "rxjs";
 import {observable} from "rxjs/symbol/observable";
 import {ContactStorage} from "./contact-storage";
-import {environment} from "environments/environment.local";
+import {environment} from "environments/environment";
 
 
 
@@ -15,11 +15,12 @@ export class ContactService {
 
   contactStorage: ContactStorage;
 
-  private contacts: Observable<Contact[]>;
+  // private contacts: Observable<Contact[]>;
 
   constructor(private localStorageService: LocalStorageService,
               private contactsApi: ContactsApiService) {
     this.contactStorage = environment.endPointUrl ? contactsApi : localStorageService;
+    console.log(environment);
     }
 
     public findContacts()  {

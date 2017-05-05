@@ -6,7 +6,6 @@ import {DialogService} from "../service/dialog.service";
 import {ContactsApiService} from "../service/contacts-api.service";
 import {Observable} from "rxjs/Observable";
 
-
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -16,7 +15,7 @@ export class ContactComponent implements OnInit {
 
   contacts: Contact[];
 
-  constructor(private router: Router, private contactService: ContactService, private dialogService: DialogService, private contactsApi: ContactsApiService) {
+  constructor(private router: Router, private contactService: ContactService, private dialogService: DialogService) {
   }
 
   addContact(contact: Observable<Contact>): void {
@@ -29,7 +28,7 @@ export class ContactComponent implements OnInit {
       }
     });
   }
-  editContact(contact: Contact): void {
+    editContact(contact: Contact): void {
     let input = this.dialogService.contactDialog(contact);
     input.subscribe(result => {
       if (result) {
@@ -39,7 +38,6 @@ export class ContactComponent implements OnInit {
       }
     });
   }
-
   contactMap(contact: Contact){
     let address = contact.streetAddress + ', ' + contact.postalCode + ' ' + contact.city;
     this.dialogService.mapDialog(address);
@@ -52,9 +50,6 @@ export class ContactComponent implements OnInit {
 
   loadContacts() {
     this.contactService.findContacts().subscribe(contacts => this.contacts);
-      // .subscribe(contacts => this.contacts = contacts);
-    //this.contactsApi.findContacts().subscribe(contacts => this.contacts = contacts);
-
 
   }
   ngOnInit(): void {

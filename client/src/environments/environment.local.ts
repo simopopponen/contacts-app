@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
-  endPointUrl: ''
+  environmentName: 'local',
+  endPointUrl: '',
+  kukkuu: ''
 };
-

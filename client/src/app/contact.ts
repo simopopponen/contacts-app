@@ -1,5 +1,5 @@
 export class Contact {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   phone: string;
@@ -7,7 +7,7 @@ export class Contact {
   postalCode: string;
   city: string;
 
-  constructor(firstName?: string, lastName?: string, phone?: string, streetAddress?: string, city?: string, postalCode?: string, id?: string) {
+  constructor(firstName?: string, lastName?: string, phone?: string, streetAddress?: string, city?: string, postalCode?: string, id?: number) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
