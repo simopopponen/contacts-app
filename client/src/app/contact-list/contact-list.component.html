@@ -1,6 +1,6 @@
 <app-contact-list-item *ngFor="let contact of contacts | orderBy: ['lastName', 'firstName', 'streetAddress']"
                        [contact]="contact"
-                       [remove]="removeContact"
+                       [remove]="deleteContact"
                        [edit]="editContact"
                        [showOnMap]="showContactOnMap"
 >

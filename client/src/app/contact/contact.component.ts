@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
       if (result) {
         // this.contactService.addContact(result);
         this.contactService.saveContacts(result).subscribe(response  =>
-          this.loadContacts());
+          this.findContacts());
       }
     });
   }
@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
       if (result) {
         // this.contactService.updateContact(result);
         this.contactService.saveContacts(result).subscribe(result =>
-          this.loadContacts());
+          this.findContacts());
       }
     });
   }
@@ -43,16 +43,17 @@ export class ContactComponent implements OnInit {
     this.dialogService.mapDialog(address);
   }
 
-  removeContact(contact: Contact): void {
-    this.contactService.removeContact(contact).subscribe(result =>
-    this.loadContacts());
+  deleteContact(contact: Contact): void {
+    this.contactService.deleteContact(contact).subscribe(result =>
+    this.findContacts());
   }
 
-  loadContacts() {
-    this.contactService.findContacts().subscribe(contacts => this.contacts);
-
+  findContacts() {
+    // this.contactService.findContacts().subscribe(contacts => this.contacts);
+    this.contactService.findContacts().subscribe(contacts => {this.contacts = contacts;
+    });
   }
   ngOnInit(): void {
-    this.loadContacts();
+    this.findContacts();
   }
 }

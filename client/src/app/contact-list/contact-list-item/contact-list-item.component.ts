@@ -20,7 +20,7 @@ export class ContactListItemComponent implements OnInit {
     this.edit.emit(this.contact);
   }
 
-  removeContact() {
+  deleteContact() {
     this.remove.emit(this.contact);
   }
 

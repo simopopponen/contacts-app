@@ -10,7 +10,6 @@ export class LocalStorageService implements ContactStorage {
 
   private localStorageKey = 'contacts';
 
-
   constructor() {
     if (localStorage.getItem(this.localStorageKey) === null) {
       localStorage.setItem(this.localStorageKey, JSON.stringify([]));
@@ -21,7 +20,6 @@ export class LocalStorageService implements ContactStorage {
     let contacts = this.readContactsLocalStorage();
     if (!contact.id) {
       let lastSaved = <Contact>_.maxBy(contacts, 'id');
-      // if lastSaved found -> lastsaved.id + 1, else contact.id == 1
       contact.id = lastSaved ? lastSaved.id + 1 : 1;
       contacts.push(contact);
     } else {
@@ -30,19 +28,19 @@ export class LocalStorageService implements ContactStorage {
       });
     }
     this.writeLocalStorageContacts(contacts);
-    // return contacts;
       return Observable.of(contacts);
-    // localStorage[this.localStorageKey] = JSON.stringify(contacts);
   }
-
   public findContacts() {
     let contacts = this.readContactsLocalStorage();
     return Observable.of(contacts);
   }
-
-  public deleteContact(contacts: Contact) {
-
-
+  public deleteContact(contact: Contact) {
+    let contacts = this.readContactsLocalStorage();
+    _.remove(contacts, function (cont: Contact) {
+      return _.isEqual(contact.id, cont.id);
+    });
+    this.writeLocalStorageContacts(contacts);
+    return Observable.of(contacts);
   }
   public readContactsLocalStorage() {
     let data = localStorage.getItem(this.localStorageKey);
