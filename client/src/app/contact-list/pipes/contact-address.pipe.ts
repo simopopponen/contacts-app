@@ -7,10 +7,13 @@ import * as _ from 'lodash';
 })
 export class ContactAddressPipe implements PipeTransform {
 
+
   transform(contact: Contact, args?: any): any {
+    if (!contact)return '';
+
     let address = [contact.streetAddress || null, contact.postalCode || null , contact.city || null];
     address = _.reject(address, _.isNull);
-    return address;
+    return address.join(', ');
     // return contact.streetAddress + ', ' + ' ' + contact.city;
   }
 

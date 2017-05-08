@@ -11,7 +11,7 @@ export class LocalStorageService implements ContactStorage {
   private localStorageKey = 'contacts';
 
   constructor() {
-    if (localStorage.getItem(this.localStorageKey) === null) {
+    if (!localStorage.getItem(this.localStorageKey) ) {
       localStorage.setItem(this.localStorageKey, JSON.stringify([]));
     }
   }
