@@ -56,8 +56,34 @@ describe('ContactLocalStorageService', () => {
 
   it('#deleteContacts Should delete one contact by id in local storage', inject([LocalStorageService], (service: LocalStorageService) => {
     let contacts = contactArray();
+    let contact = contacts[1];
+    localStorage.setItem(localStorageKey, JSON.stringify(contacts));
 
+    service.deleteContact(contact).subscribe((contacts: Contact[]) => {
 
+      _.forEach(contacts, function () {
+        expect(contacts.length).toBe(2);
+      });
+    });
   }));
+
+  it('#saveContact should save contact', inject([LocalStorageService], (service: LocalStorageService) => {
+
+    let contacts = contactArray();
+    let contact = new Contact('Fourth', 'LastName', '1234567', 'streetAddress', 'City', '12345', 4)
+    localStorage.setItem(localStorageKey, JSON.stringify(contacts));
+
+    service.saveContacts(contact).subscribe((contacts: Contact[]) => {
+
+      _.forEach(contacts, function () {
+        expect(contacts.length).toBe(4);
+
+      });
+    });
+  }));
+
+
+
+
 
 });

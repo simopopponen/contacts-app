@@ -27,7 +27,7 @@ export class ContactsApiService implements ContactStorage{
   }
 
   updateContact(contact: Contact) {
-    return this.http.put(this.url, contact);
+    return this.http.put(this.url + '/' + contact.id, contact);
 
   }
 
