@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {HttpModule, ConnectionBackend, RequestOptions, XHRBackend} from '@angular/http';
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactListItemComponent } from './contact-list/contact-list-item/contact-list-item.component';
@@ -19,6 +19,7 @@ import {NgPipesModule} from 'ngx-pipes';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './user/login/login.component';
 import { RouterModule } from '@angular/router';
+import {HttpService} from "./service/http.service";
 
 
 const routes = [
@@ -38,6 +39,10 @@ const routes = [
   },
 
   ]
+
+export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
+  return new HttpService(backend, options);
+}
 
 @NgModule({
   declarations: [
@@ -60,7 +65,12 @@ const routes = [
     NgPipesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ContactService, DialogService, LocalStorageService, ContactsApiService],
+  providers:
+    [{
+      provide: HttpService,
+      useFactory: getHttp,
+      deps: [XHRBackend, RequestOptions]
+    }, ContactService, DialogService, LocalStorageService, ContactsApiService],
   bootstrap: [AppComponent],
   entryComponents: [MapdialogComponent, ContactdialogComponent]
 })

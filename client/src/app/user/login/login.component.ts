@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) { }
 
   navigateToContacts(){
-    this.router.navigate([('/contact')])
+    this.router.navigate([('/contact')]);
   }
 
   ngOnInit() {
