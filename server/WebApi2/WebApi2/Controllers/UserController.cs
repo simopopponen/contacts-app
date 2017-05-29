@@ -18,10 +18,17 @@ namespace WebApi2.Controllers
             _userService = userService;
         }
 
+        [HttpGet]
+        public IActionResult GetUser()
+        {
+            var user = _userService.FindByUsername(User.Identity.Name);
+            return new JsonResult(user);
+        }
+
         [HttpPut]
         public IActionResult Login()
         {
-            var user = _userService.FindUserByUsername(User.Identity.Name);
+            var user = _userService.FindByUsername(User.Identity.Name);
             return new JsonResult(user);
         }
     }

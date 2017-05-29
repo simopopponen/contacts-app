@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApi2.Model;
 
+
 namespace WebApi2.Contexts
 {
     public class ContactsContext : DbContext

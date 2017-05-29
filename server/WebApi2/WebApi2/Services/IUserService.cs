@@ -5,7 +5,7 @@ namespace WebApi2.Services
 {
     public interface IUserService
     {
-        User FindUserByUsername(string username);
-        User FindUserByUsernameAndPassword(string username, string password);
+        User FindByUsername(string username);
+        User FindByUsernameAndPassword(string username, string password);
     }
 }

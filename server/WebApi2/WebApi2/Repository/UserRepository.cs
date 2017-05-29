@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using WebApi2.Contexts;
 using WebApi2.Model;
 
@@ -12,6 +13,7 @@ namespace WebApi2.Repository
         {
             _context = context;
             var user = new User("admin", "admin", "Admin", "Admin", "admin.admin@saimia.fi");
+            Console.WriteLine(user);
             if (FindByUsername(user.Username) == null)
             {
                 _context.User.Add(user);

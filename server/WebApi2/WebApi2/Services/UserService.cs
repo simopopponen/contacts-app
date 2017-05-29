@@ -13,12 +13,12 @@ namespace WebApi2.Services
             this._userRepository = userRepository;
         }
 
-        public User FindUserByUsername(string username)
+        public User FindByUsername(string username)
         {
             return _userRepository.FindByUsername(username);
         }
 
-        public User FindUserByUsernameAndPassword(string username, string password)
+        public User FindByUsernameAndPassword(string username, string password)
         {
             return _userRepository.FindByUsernameAndPassword(username, password);
         }
