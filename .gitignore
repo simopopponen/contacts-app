@@ -280,3 +280,9 @@ __pycache__/
 
 # IntelliJ IDEA project file
 *.iml
+obj
+bin
+/cordova/hooks
+/cordova/platforms
+/cordova/plugins
+/cordova/www

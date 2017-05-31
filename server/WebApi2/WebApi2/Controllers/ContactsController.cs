@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace WebApi2.Controllers
 {
-    [EnableCors("CorsPolicy")]
+    [EnableCors("ContactsAppPolicy")]
     [Route("api/contacts")]
     public class ContactsController : Controller
     {

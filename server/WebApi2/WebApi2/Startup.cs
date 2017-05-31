@@ -46,7 +46,7 @@ namespace WebApi2
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
 
-            services.AddMvc();
+            
 
             //Configure database
             services.AddDbContext<ContactsContext>(options =>
@@ -65,6 +65,8 @@ namespace WebApi2
                     .RequireAuthenticatedUser()
                     .Build());
             });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
