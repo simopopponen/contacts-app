@@ -20,6 +20,10 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './user/login/login.component';
 import { RouterModule } from '@angular/router';
 import {HttpService} from "./service/http.service";
+import {UserService} from "./user/services/user.service";
+import {UserApiService} from "./user/services/user-api.service";
+import {AuthenticationService} from "./user/services/authentication.service";
+import {AuthDialogComponent} from './user/auth-dialog/auth-dialog.component';
 
 
 const routes = [
@@ -53,7 +57,8 @@ export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
     ContactdialogComponent,
     ContactAddressPipe,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    AuthDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,8 +75,14 @@ export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
       provide: HttpService,
       useFactory: getHttp,
       deps: [XHRBackend, RequestOptions]
-    }, ContactService, DialogService, LocalStorageService, ContactsApiService],
+    }, ContactService,
+      DialogService,
+      LocalStorageService,
+      ContactsApiService,
+      UserService,
+      UserApiService,
+      AuthenticationService],
   bootstrap: [AppComponent],
-  entryComponents: [MapdialogComponent, ContactdialogComponent]
+  entryComponents: [MapdialogComponent, ContactdialogComponent, AuthDialogComponent]
 })
 export class AppModule { }

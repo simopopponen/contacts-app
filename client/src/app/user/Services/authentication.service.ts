@@ -12,9 +12,9 @@ export class AuthenticationService {
   constructor(private http: HttpService) {
   }
 
-  authenticate(username: string, password: string) {
+  authenticate(userName: string, password: string) {
     return this.http.post(this.url, {
-      username: username,
+      username: userName,
       password: password
     }).map((response: Response) => {
       let data = response.json();

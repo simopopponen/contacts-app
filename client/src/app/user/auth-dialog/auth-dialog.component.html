@@ -1,0 +1,14 @@
+<div id="ca-auth-dialog" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <md-icon id="ca-auth-icon">lock_outline</md-icon>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h2>Error 401: Unauthorized access</h2>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <p>Access denied due to unauthorized username or password. <br> Please try again.</p>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <button md-raised-button md-dialog-close color="accent" (click)="directToLogin()">Close</button>
+  </div>
+</div>

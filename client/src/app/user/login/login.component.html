@@ -9,7 +9,7 @@
       </div>
       <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
         <md-input-container floatPlaceholder="auto">
-          <input mdInput [(ngModel)]="user.emailAddress" type="text" required placeholder="Email address">
+          <input mdInput [(ngModel)]="user.userName" type="text" required placeholder="Username">
         </md-input-container>
       </div>
       <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
@@ -20,8 +20,8 @@
       <br>
       <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
         <button md-raised-button
-                [disabled]="!user.emailAddress || !user.password"
-                (click)="navigateToContacts()">Login to app
+                [disabled]="!user.userName || !user.password"
+                (click)="login()">Login to app
         </button>
       </div>
     </md-card-content>
